@@ -4,7 +4,7 @@ Com essa ferramenta, o profissional psicólogo poderá focar 100% em seu pacient
 
 Para ambiente de desenvolvimento: 
 
-Passo 01 - Instalar Node.js em sua máquina através do link: https://nodejs.org/en \n
+Passo 01 - Instalar Node.js em sua máquina através do link: https://nodejs.org/en /n
 Passo 02 - Entrar na pasta client e server e rodar o seguinte comando: npm i \n
 Passo 03 - Entrar na pasta client e server e rodar o seguinte comando: npm start \n
 
