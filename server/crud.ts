@@ -33,7 +33,7 @@ interface dataToSave{
     id?: string,
 }
 
-function getById(entity:string){ // filtro do bando
+function getById(entity:string){
     const citiesCol = collection(db, entity);
     return getDocs(citiesCol).then(resp => {
         const returnList = resp.docs.map(doc => doc.data());

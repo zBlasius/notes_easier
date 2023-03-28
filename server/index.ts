@@ -5,14 +5,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
+app.get('/get_test', (req, res) => {
+  const data = req.query || {};
+  return res.status(200).json({ok:data});
 });
 
-app.get('/blasius_test', (req,res)=>{
-  res.status(400).json({ok:true})
+app.post('/post_test', (req,res)=>{
+  const data = req.body || {};
+  return res.status(200).json({ok:data})
 })
 
 app.listen(8000, () => {
-  console.log('Server started on port 3000');
+  console.log('Server started on port 8000');
 });
