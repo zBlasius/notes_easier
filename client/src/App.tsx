@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import crud from './service/crud';
+import { EmailContext } from './store/AuthContext';
+import { GlobalContent } from './interfaces/interface';
 import './App.css';
 
-
 function App() {
+  const emailContext = useContext<GlobalContent>(EmailContext);
+  const {email} = emailContext;
 
   async function getBackend(){
-    let objSearch = {kind:'Teste', route: '/get_test'}
-    const getData = await crud.get(objSearch, {name:'Blasius', age:39});
+    let objSearch = {kind:'Teste', route: '/get_test'};
+    const getData = await crud.get(objSearch, {email, name:'Blasius', age:39});
     console.log(getData);
   }
 
   async function postBacken(){
-    let objSearch = {kind:'Teste', route: '/post_test'}
-    const postData = await crud.post(objSearch, {car:'Gol', color:'white'});
+    let objSearch = {kind:'Teste', route: '/post_test'};
+    const postData = await crud.post(objSearch, {email, car:'Gol', color:'white'});
     console.log(postData);
   }
 

@@ -1,14 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, doc, addDoc, setDoc, deleteDoc } from "firebase/firestore";
+
 const firebaseApp = initializeApp({
-    apiKey: "AIzaSyC7QyTu5CxHDDNS0zkILZNJIytF4LfFD8Y",
+    apiKey: process.env.apiId,
     authDomain: "psicodevelicos.firebaseapp.com",
     projectId: "psicodevelicos",
     storageBucket: "psicodevelicos.appspot.com",
     messagingSenderId: "318941583719",
-    appId: "1:318941583719:web:0ee31d87c17a4e42c4f7c2",
+    appId: process.env.apiId,
     measurementId: "G-JYSNCPGLKL"
 });
+
 const db = getFirestore(firebaseApp); 
 
 /**

@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from 'cors';
+import crud from './crud'
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
 
 app.get('/get_test', (req, res) => {
   const data = req.query || {};
