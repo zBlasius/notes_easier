@@ -14,7 +14,7 @@ function App() {
     console.log(getData);
   }
 
-  async function postBacken(){
+  async function postBackend(){
     let objSearch = {kind:'Teste', route: '/post_test'};
     const postData = await crud.post(objSearch, {email, car:'Gol', color:'white'});
     console.log(postData);
@@ -28,7 +28,7 @@ function App() {
         </h1>
 
         <button onClick={()=> getBackend()}> TESTE GET</button>
-        <button onClick={()=> postBacken()}> TESTE POST</button>
+        <button onClick={()=> postBackend()}> TESTE POST</button>
       </header>
     </div>
   );

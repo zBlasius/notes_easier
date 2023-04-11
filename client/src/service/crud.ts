@@ -6,7 +6,6 @@ const host = 'http://localhost:8000';
 function get(searchData: BdSearchInfo, data: BdDataInfo) {
     const {route} = searchData;
     
-    console.log('GET','searchData: ', searchData, 'data: ', data)
     axios.get(host + route, {
         params: data
     }).then(ret => {
@@ -19,7 +18,6 @@ function get(searchData: BdSearchInfo, data: BdDataInfo) {
 function post(searchData: BdSearchInfo, data: BdDataInfo) {
     const {route} = searchData;
     
-    console.log('POST','searchData: ', searchData, 'data: ', data)
     axios.post(host + route, data)
         .then(response => {
             console.log(response.data);

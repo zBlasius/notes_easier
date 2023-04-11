@@ -28,7 +28,7 @@ const Auth = (props: AuthProps) => {
 
     useEffect(()=>{
         onAuthStateChanged(auth, (user:any) => {
-            if (user != null) {
+          if (user != null) {
                 setEmail(user.email);
               } else {
                 signInWithRedirect(auth, provider);
