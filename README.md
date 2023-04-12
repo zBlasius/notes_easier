@@ -7,6 +7,7 @@ Para ambiente de desenvolvimento:
 	<li>Passo 01 - Instalar Node.js em sua máquina através do link: https://nodejs.org/en </li>
 	<li>Passo 02 - Entrar na pasta client e server e rodar o seguinte comando: npm i </li>
 	<li>Passo 03 - Entrar na pasta client e server e rodar o seguinte comando: npm start 	</li>
+	<li> Fluxo de telas: https://whimsical.com/psidevelicos-LHbowiqtCp737EWkiBeCcf </li>
 	<li>Pronto! </li>
 </ul>
 
