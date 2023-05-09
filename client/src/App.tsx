@@ -15,7 +15,7 @@ function App() {
   }
 
   async function postBackend(){
-    let objSearch = {kind:'Teste', route: '/post_test'};
+    let objSearch = {kind:'Teste', route: '/Patient/create_new_patient'};
     const postData = await crud.post(objSearch, {email, car:'Gol', color:'white'});
     console.log(postData);
   }

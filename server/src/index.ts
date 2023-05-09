@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import crud from './crud'
+import crud from './Helpers/crud'
 const app = express();
 
 app.use(express.json());
@@ -10,7 +10,7 @@ function getUserEmail(data){
   let email
   
   data.email 
-    ?email = data.email
+    ? email = data.email
     : email = '';
 
   return email
