@@ -8,6 +8,7 @@ Para ambiente de desenvolvimento:
 	<li>Passo 02 - Entrar na pasta client e server e rodar o seguinte comando: npm i </li>
 	<li>Passo 03 - Entrar na pasta client e server e rodar o seguinte comando: npm start 	</li>
 	<li> Fluxo de telas: https://whimsical.com/psidevelicos-LHbowiqtCp737EWkiBeCcf </li>
+	<li> Jira: https://trello.com/b/objxM48o/notes-easier</li>
 	<li>Pronto! </li>
 </ul>
 
