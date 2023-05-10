@@ -1,10 +1,10 @@
-import React, {useContext, useEffect} from 'react';
-import crud from './service/crud';
+import React, {useContext} from 'react';
+import crud from './services/crud';
 import { EmailContext } from './store/AuthContext';
 import { GlobalContent } from './interfaces/interface';
 import './App.css';
 
-function App() {
+export default function App() {
   const emailContext = useContext<GlobalContent>(EmailContext);
   const {email} = emailContext;
 
@@ -33,5 +33,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

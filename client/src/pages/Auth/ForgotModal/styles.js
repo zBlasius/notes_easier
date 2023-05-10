@@ -1,0 +1,1 @@
+// estilo do componente, tudo na mesma pasta

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
-import { EmailContext } from "../store/AuthContext";
-import { AuthProps, GlobalContent } from "../interfaces/interface";
+import { EmailContext } from "../../store/AuthContext";
+import { AuthProps, GlobalContent } from "../../interfaces/interface";
 const { initializeApp } = require("firebase/app");
 const {
   getAuth,
