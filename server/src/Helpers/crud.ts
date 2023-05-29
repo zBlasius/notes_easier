@@ -13,6 +13,8 @@ const firebaseApp = initializeApp({
     measurementId: "G-1G1WPDY5G0"
   });
 
+// * TODO - mudar para classes
+
 const db = getFirestore(firebaseApp); 
 
 /**
@@ -24,68 +26,66 @@ interface userSaveData {
     userEmail:string,
     kind:string
 }
+export class Crud{
+    email:string;
 
-async function getById(entity:string){
-    const citiesCol = collection(db, entity);
-    return getDocs(citiesCol).then( (resp : any) => { 
-        const returnList = resp.docs.map((doc:any) => doc.data());
-        return returnList;
-    });
-}
+    constructor(email) {
+        this.email = email;
+    }
 
-async function getAll(userSaveData:userSaveData){
-    const {userEmail, kind} = userSaveData;
-    const postCol = collection(db, `psicodevlicos/${userEmail}/${kind}`);
-    return getDocs(postCol).then((resp:any) => {
-        const returnList = resp.docs.map((doc:any) => { return { id: doc.id, ...doc.data() } });
-        return returnList;
-    });
-}
-
-async function upcreate(userSaveData:userSaveData, data:any){
-    
-    try {
-        const params = data;
-
-        if (params.id) {
-            return update(userSaveData, params, params.id);
+    async update(userSaveData:userSaveData, data:object, id:string){
+        try {
+            const {userEmail, kind} = userSaveData
+            const _post = doc(db, `psicodevlicos`, userEmail, kind, id)
+            return setDoc(_post, data)
+        } catch (error) {
+            throw error;
         }
-        return post(userSaveData, params);
-    } catch (error) {
-        throw error;
+    }
+
+    async create(userSaveData:userSaveData, data:object) {
+        try {
+            const {userEmail, kind} = userSaveData;
+            const _post = collection(db, `psicodevlicos/${userEmail}/${kind}`)
+            const resp = await addDoc(_post, data);
+            return { ...data, id: resp.id }   
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async remove(userSaveData:userSaveData, id:string){
+        try {
+            const {userEmail, kind} = userSaveData;
+            const removeItem = doc(db, `psicodevlicos`, userEmail, kind, id)
+            const resp = await deleteDoc(removeItem)
+            return resp;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async listAll(userSaveData:userSaveData){
+        try {
+            const {userEmail, kind} = userSaveData;
+            const postCol = collection(db, `psicodevlicos/${userEmail}/${kind}`);
+            const resp = await getDocs(postCol);
+            const returnList = resp.docs.map((doc:any) => { return { id: doc.id, ...doc.data()}});
+            return returnList;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getById(entity:string){
+        try {
+            const citiesCol = collection(db, entity);
+            const resp = await getDocs(citiesCol);
+            const returnList = resp.docs.map((doc:any) => doc.data());
+            return returnList;
+        } catch (error) {
+            throw error;
+        }
     }
 }
 
-async function remove(userSaveData:userSaveData, id:string){
-    const {userEmail, kind} = userSaveData;
-    const removeItem = doc(db, `psicodevlicos`, userEmail, kind, id)
-    return deleteDoc(removeItem).then((resp:any) => {
-        return resp 
-    });
-}
-
-async function post(userSaveData:userSaveData, data:object) {
-    const {userEmail, kind} = userSaveData;
-
-    const _post = collection(db, `psicodevlicos/${userEmail}/${kind}`)
-    return addDoc(_post, data).then((resp:any) => {
-        return { ...data, id: resp.id }
-    }).catch(err=>{
-        console.log('erro ao atualizar os dados! ', err)
-        throw err;
-        
-    })
-}
-
-async function update(userSaveData:userSaveData, data:object, id:string){
-    const {userEmail, kind} = userSaveData
-    const _post = doc(db, `psicodevlicos`, userEmail, kind, id)
-    return setDoc(_post, data)
-}
-
-export default {
-    getById,
-    getAll,
-    upcreate,
-    remove
-}

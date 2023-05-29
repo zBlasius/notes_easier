@@ -38,7 +38,7 @@ export default function SearchPatient(){
     const [newPatient, setNewPatient] = useState({Name:'', Age:0});
 
     async function getBackend(){
-        let objSearch = {kind:'Teste', route: '/get_test'};
+        let objSearch = {kind:'Teste', route: '/list_all_person'};
         const getData = await crud.get(objSearch, {email, name:'Blasius', age:39});
         console.log(getData);
     }
@@ -87,7 +87,7 @@ export default function SearchPatient(){
                 setNewPatient({..._newPatient});
             }}/>
             
-            <C_Button label="Adicionar" onClick={()=> createNewPatient()}/>
+            <C_Button label="Adicionar" onClick={()=> getBackend()}/>
             </div>
         </div>
     )
