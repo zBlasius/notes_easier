@@ -70,9 +70,11 @@ export class Crud{
             const {userEmail, kind} = userSaveData;
             const postCol = collection(db, `psicodevlicos/${userEmail}/${kind}`);
             const resp = await getDocs(postCol);
+            console.log("resp", resp)
             const returnList = resp.docs.map((doc:any) => { return { id: doc.id, ...doc.data()}});
             return returnList;
         } catch (error) {
+            console.log('error', error)
             throw error;
         }
     }

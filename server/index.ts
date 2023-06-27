@@ -19,7 +19,7 @@ function getUserEmail(data){
 
 app.get('/list_all_person', async (req,res)=>{
   try {
-    console.log('entrou aqui')
+    console.log('entrou aqui') 
     const person = new Person('gustavo.blasius@clinicorp.com');
     const allPersonList = await person.getAllPerson();
     return res.status(200).json(allPersonList);
